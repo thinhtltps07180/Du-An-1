@@ -1,4 +1,4 @@
-package poly.app.view.utils;
+package poly.app.ui.utils;
 
 import java.awt.Color;
 import java.awt.Dimension;

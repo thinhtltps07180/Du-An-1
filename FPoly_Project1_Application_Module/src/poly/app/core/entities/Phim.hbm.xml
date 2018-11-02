@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Nov 2, 2018 5:32:45 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="poly.app.core.entities.Phim" table="phim" catalog="du_an_1" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="loaiPhim" class="poly.app.core.entities.LoaiPhim" fetch="select">
+            <column name="loai_phim_id" not-null="true" />
+        </many-to-one>
+        <property name="ten" type="string">
+            <column name="ten" length="100" not-null="true" />
+        </property>
+        <property name="thoiLuong" type="int">
+            <column name="thoi_luong" not-null="true" />
+        </property>
+        <property name="gioiHanTuoi" type="java.lang.Integer">
+            <column name="gioi_han_tuoi" />
+        </property>
+        <property name="namSanXuat" type="java.lang.Integer">
+            <column name="nam_san_xuat" />
+        </property>
+        <property name="ngayCongChieu" type="date">
+            <column name="ngay_cong_chieu" length="10" />
+        </property>
+        <property name="ngonNgu" type="string">
+            <column name="ngon_ngu" length="20" />
+        </property>
+        <property name="daoDien" type="string">
+            <column name="dao_dien" length="45" />
+        </property>
+        <property name="dienVien" type="string">
+            <column name="dien_vien" length="100" />
+        </property>
+        <property name="quocGia" type="string">
+            <column name="quoc_gia" length="45" />
+        </property>
+        <property name="nhaSanXuat" type="string">
+            <column name="nha_san_xuat" length="45" />
+        </property>
+        <property name="tomTat" type="string">
+            <column name="tom_tat" length="1000" />
+        </property>
+        <property name="trangThai" type="string">
+            <column name="trang_thai" length="10" />
+        </property>
+        <set name="suatChieus" table="suat_chieu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="phim_id" not-null="true" />
+            </key>
+            <one-to-many class="poly.app.core.entities.SuatChieu" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -53,7 +53,6 @@ CREATE TABLE `do_an` (
   `id` varchar(15) NOT NULL,
   `ten` varchar(45) NOT NULL,
   `loai_do_an_id` int(10) unsigned NOT NULL,
-  `kich_co_do_an_id` varchar(5) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_DOAN_LOAIDOAN_idx` (`loai_do_an_id`),
   CONSTRAINT `FK_DOAN_LOAIDOAN` FOREIGN KEY (`loai_do_an_id`) REFERENCES `loai_do_an` (`id`)
@@ -78,7 +77,7 @@ DROP TABLE IF EXISTS `do_an_chi_tiet`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `do_an_chi_tiet` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `don_gia` int(10) unsigned DEFAULT NULL,
+  `don_gia` int(10) unsigned NOT NULL,
   `do_an_id` varchar(15) NOT NULL,
   `kich_co_do_an_id` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
@@ -190,12 +189,12 @@ DROP TABLE IF EXISTS `hoa_don_chi_tiet`;
 CREATE TABLE `hoa_don_chi_tiet` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `so_luong` int(10) unsigned NOT NULL,
-  `do_an_id` varchar(15) NOT NULL,
   `hoa_don_id` varchar(15) NOT NULL,
+  `do_an_chi_tiet_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_HOADONCHITIET_HOADON_idx` (`hoa_don_id`),
-  KEY `FK_HOADONCHITIET_DOAN_idx` (`do_an_id`),
-  CONSTRAINT `FK_HOADONCHITIET_DOAN` FOREIGN KEY (`do_an_id`) REFERENCES `do_an` (`id`),
+  KEY `FK_HOADONCHITIET_DOANCHITIET_idx` (`do_an_chi_tiet_id`),
+  CONSTRAINT `FK_HOADONCHITIET_DOANCHITIET` FOREIGN KEY (`do_an_chi_tiet_id`) REFERENCES `do_an_chi_tiet` (`id`),
   CONSTRAINT `FK_HOADONCHITIET_HOADON` FOREIGN KEY (`hoa_don_id`) REFERENCES `hoa_don` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -571,4 +570,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-02 16:53:57
+-- Dump completed on 2018-11-02 17:25:19

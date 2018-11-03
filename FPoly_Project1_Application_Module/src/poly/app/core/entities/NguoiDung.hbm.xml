@@ -8,7 +8,7 @@
             <column name="id" length="15" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="vaiTro" class="poly.app.core.entities.VaiTro" fetch="select">
+        <many-to-one name="vaiTro" class="poly.app.core.entities.VaiTro" fetch="join">
             <column name="vai_tro_id" length="2" not-null="true" />
         </many-to-one>
         <property name="hoTen" type="string">

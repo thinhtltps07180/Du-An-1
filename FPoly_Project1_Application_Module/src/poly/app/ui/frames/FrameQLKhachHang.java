@@ -13,12 +13,12 @@ import poly.app.ui.utils.TableRendererUtil;
  *
  * @author vothanhtai
  */
-public class FrameQLNhanVien extends javax.swing.JFrame {
+public class FrameQLKhachHang extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameQLNhanVien
      */
-    public FrameQLNhanVien() {
+    public FrameQLKhachHang() {
         initComponents();
         setLocationRelativeTo(null);
         reRenderUI();
@@ -26,9 +26,9 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
 
     private void reRenderUI() {
         //        Render lại giao diện cho table
-        TableRendererUtil tblRenderer1 = new TableRendererUtil(tblNguoiDung);
+        TableRendererUtil tblRenderer1 = new TableRendererUtil(tblKhachHang);
         tblRenderer1.setCellEditable(false);
-        tblRenderer1.setDataVector(new Vector(), TableStructureHelper.NGUOIDUNG_TABLE_IDENTIFIERS);
+        tblRenderer1.setDataVector(new Vector(), TableStructureHelper.KHACHHANG_TABLE_IDENTIFIERS);
         tblRenderer1.changeHeaderStyle();
     }
 
@@ -51,7 +51,7 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblNguoiDung = new javax.swing.JTable();
+        tblKhachHang = new javax.swing.JTable();
         btnCollapse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,8 +70,8 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,16 +119,16 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
 
         jPanel5.setOpaque(false);
 
-        tblNguoiDung.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        tblNguoiDung.setModel(new javax.swing.table.DefaultTableModel(
+        tblKhachHang.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        tblKhachHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã người dùng", "Họ tên", "Số cmnd", "Số điện thoại", "Email", "Địa chỉ", "Ngày vào làm", "Giới tính", "Vai trò"
+                "Mã khách hàng", "Họ và tên", "Số cmnd", "Số điện thoại", "Email", "Địa chỉ", "Ngày đăng ký", "Ngày sinh", "Giới tính"
             }
         ));
-        jScrollPane1.setViewportView(tblNguoiDung);
+        jScrollPane1.setViewportView(tblKhachHang);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -231,6 +231,7 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
 //        Đổ dữ liệu từ database vào table
 //        Code không quá 10 dòng
     }
+    
     /**
      * @param args the command line arguments
      */
@@ -248,20 +249,21 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameQLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameQLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameQLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameQLNhanVien.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameQLNhanVien().setVisible(true);
+                new FrameQLKhachHang().setVisible(true);
             }
         });
     }
@@ -278,6 +280,6 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblNguoiDung;
+    private javax.swing.JTable tblKhachHang;
     // End of variables declaration//GEN-END:variables
 }

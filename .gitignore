@@ -75,3 +75,6 @@ nbdist/
 # Directories potentially created on remote AFP share
 
 # End of https://www.gitignore.io/api/osx,java,macos,netbeans
+
+# my custom
+!libraries/*

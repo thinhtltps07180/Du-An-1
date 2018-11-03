@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 2, 2018 5:32:45 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 3, 2018 10:13:25 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="poly.app.core.entities.NguoiDung" table="nguoi_dung" catalog="du_an_1" optimistic-lock="version">
-        <id name="id" type="int">
-            <column name="id" />
+        <id name="id" type="string">
+            <column name="id" length="15" />
             <generator class="assigned" />
         </id>
         <many-to-one name="vaiTro" class="poly.app.core.entities.VaiTro" fetch="select">
@@ -32,18 +32,18 @@
         <property name="ngayVaoLam" type="date">
             <column name="ngay_vao_lam" length="10" not-null="true" />
         </property>
-        <property name="gioiTinh" type="byte">
+        <property name="gioiTinh" type="boolean">
             <column name="gioi_tinh" not-null="true" />
         </property>
         <set name="veBans" table="ve_ban" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="nhan_vien_id" not-null="true" />
+                <column name="nhan_vien_id" length="15" not-null="true" />
             </key>
             <one-to-many class="poly.app.core.entities.VeBan" />
         </set>
         <set name="hoaDons" table="hoa_don" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="nhan_vien_id" not-null="true" />
+                <column name="nhan_vien_id" length="15" not-null="true" />
             </key>
             <one-to-many class="poly.app.core.entities.HoaDon" />
         </set>

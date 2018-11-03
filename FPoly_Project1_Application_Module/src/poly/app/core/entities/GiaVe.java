@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,34 +11,30 @@ import java.util.Set;
 public class GiaVe  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private String ten;
      private int donGia;
      private Set<VeBan> veBans = new HashSet<VeBan>(0);
-     private Set<VeDat> veDats = new HashSet<VeDat>(0);
 
     public GiaVe() {
     }
 
 	
-    public GiaVe(int id, String ten, int donGia) {
-        this.id = id;
+    public GiaVe(String ten, int donGia) {
         this.ten = ten;
         this.donGia = donGia;
     }
-    public GiaVe(int id, String ten, int donGia, Set<VeBan> veBans, Set<VeDat> veDats) {
-       this.id = id;
+    public GiaVe(String ten, int donGia, Set<VeBan> veBans) {
        this.ten = ten;
        this.donGia = donGia;
        this.veBans = veBans;
-       this.veDats = veDats;
     }
    
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getTen() {
@@ -61,13 +57,6 @@ public class GiaVe  implements java.io.Serializable {
     
     public void setVeBans(Set<VeBan> veBans) {
         this.veBans = veBans;
-    }
-    public Set<VeDat> getVeDats() {
-        return this.veDats;
-    }
-    
-    public void setVeDats(Set<VeDat> veDats) {
-        this.veDats = veDats;
     }
 
 

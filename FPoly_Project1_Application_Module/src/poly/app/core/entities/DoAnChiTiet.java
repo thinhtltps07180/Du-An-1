@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 9:52:40 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -15,21 +15,24 @@ public class DoAnChiTiet  implements java.io.Serializable {
      private DoAn doAn;
      private KichCoDoAn kichCoDoAn;
      private int donGia;
+     private boolean trangThai;
      private Set<HoaDonChiTiet> hoaDonChiTiets = new HashSet<HoaDonChiTiet>(0);
 
     public DoAnChiTiet() {
     }
 
 	
-    public DoAnChiTiet(DoAn doAn, KichCoDoAn kichCoDoAn, int donGia) {
+    public DoAnChiTiet(DoAn doAn, KichCoDoAn kichCoDoAn, int donGia, boolean trangThai) {
         this.doAn = doAn;
         this.kichCoDoAn = kichCoDoAn;
         this.donGia = donGia;
+        this.trangThai = trangThai;
     }
-    public DoAnChiTiet(DoAn doAn, KichCoDoAn kichCoDoAn, int donGia, Set<HoaDonChiTiet> hoaDonChiTiets) {
+    public DoAnChiTiet(DoAn doAn, KichCoDoAn kichCoDoAn, int donGia, boolean trangThai, Set<HoaDonChiTiet> hoaDonChiTiets) {
        this.doAn = doAn;
        this.kichCoDoAn = kichCoDoAn;
        this.donGia = donGia;
+       this.trangThai = trangThai;
        this.hoaDonChiTiets = hoaDonChiTiets;
     }
    
@@ -60,6 +63,13 @@ public class DoAnChiTiet  implements java.io.Serializable {
     
     public void setDonGia(int donGia) {
         this.donGia = donGia;
+    }
+    public boolean isTrangThai() {
+        return this.trangThai;
+    }
+    
+    public void setTrangThai(boolean trangThai) {
+        this.trangThai = trangThai;
     }
     public Set<HoaDonChiTiet> getHoaDonChiTiets() {
         return this.hoaDonChiTiets;

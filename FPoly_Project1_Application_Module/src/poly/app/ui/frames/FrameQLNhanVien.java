@@ -5,8 +5,6 @@
  */
 package poly.app.ui.frames;
 
-import java.util.Vector;
-import poly.app.core.helper.TableStructureHelper;
 import poly.app.ui.utils.TableRendererUtil;
 
 /**
@@ -26,10 +24,9 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
 
     private void reRenderUI() {
         //        Render lại giao diện cho table
-        TableRendererUtil tblRenderer1 = new TableRendererUtil(tblNguoiDung);
-        tblRenderer1.setCellEditable(false);
-        tblRenderer1.setDataVector(new Vector(), TableStructureHelper.NGUOIDUNG_TABLE_IDENTIFIERS);
-        tblRenderer1.changeHeaderStyle();
+        TableRendererUtil tblRenderer = new TableRendererUtil(tblNguoiDung);
+        tblRenderer.setCellEditable(false);
+        tblRenderer.changeHeaderStyle();
     }
 
     /**

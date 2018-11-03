@@ -386,11 +386,9 @@ CREATE TABLE `phim` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `ten` varchar(100) NOT NULL,
   `thoi_luong` int(10) unsigned NOT NULL,
-  `gioi_han_tuoi` int(10) unsigned DEFAULT NULL,
-  `nam_san_xuat` int(10) unsigned DEFAULT NULL,
+  `gioi_han_tuoi` int(10) unsigned DEFAULT '0',
   `ngay_cong_chieu` date DEFAULT NULL,
   `ngon_ngu` varchar(20) DEFAULT 'Chưa cập nhật',
-  `dao_dien` varchar(45) DEFAULT 'Chưa cập nhật',
   `dien_vien` varchar(100) DEFAULT 'Chưa cập nhật',
   `quoc_gia` varchar(45) DEFAULT 'Chưa cập nhật',
   `nha_san_xuat` varchar(45) DEFAULT 'Chưa cập nhật',
@@ -409,7 +407,7 @@ CREATE TABLE `phim` (
 
 LOCK TABLES `phim` WRITE;
 /*!40000 ALTER TABLE `phim` DISABLE KEYS */;
-INSERT INTO `phim` VALUES (1,'Phim con heo',60,18,2018,'2018-12-14','Japanese','Japan','Japan','JAPAN','Japan.co.ltd','Hấp dẫn, lên máu','chuachieu',1),(2,'Phim con người',90,6,2017,'2018-12-01','Vietnamese','Vietnam','Vietnam','VIETNAM','Viet.co.ltd','Bình thường','dangchieu',2);
+INSERT INTO `phim` VALUES (1,'Phim con heo',60,18,'2018-12-14','Japanese','Japan','JAPAN','Japan.co.ltd','Hấp dẫn, lên máu','chuachieu',1),(2,'Phim con người',90,6,'2018-12-01','Vietnamese','Vietnam','VIETNAM','Viet.co.ltd','Bình thường','dangchieu',2);
 /*!40000 ALTER TABLE `phim` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -540,21 +538,13 @@ DROP TABLE IF EXISTS `ve_dat`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `ve_dat` (
   `id` varchar(15) NOT NULL,
-  `ngay_dat` date NOT NULL,
-  `tong_cong` int(10) unsigned NOT NULL,
-  `suat_chieu_id` int(10) unsigned NOT NULL,
-  `gia_ve_id` int(10) unsigned NOT NULL,
-  `ghe_id` int(10) unsigned NOT NULL,
   `khach_hang_id` varchar(15) NOT NULL,
+  `ve_ban_id` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK_VEDAT_SUATCHIEU_idx` (`suat_chieu_id`),
-  KEY `FK_VEDAT_GIAVE_idx` (`gia_ve_id`),
-  KEY `FK_VEDAT_GHE_idx` (`ghe_id`),
   KEY `FK_VEDAT_KHACHANG_idx` (`khach_hang_id`),
-  CONSTRAINT `FK_VEDAT_GHE` FOREIGN KEY (`ghe_id`) REFERENCES `ghe_ngoi` (`id`),
-  CONSTRAINT `FK_VEDAT_GIAVE` FOREIGN KEY (`gia_ve_id`) REFERENCES `gia_ve` (`id`),
+  KEY `FK_VEDAT_VEBAN_idx` (`ve_ban_id`),
   CONSTRAINT `FK_VEDAT_KHACHANG` FOREIGN KEY (`khach_hang_id`) REFERENCES `khach_hang` (`id`),
-  CONSTRAINT `FK_VEDAT_SUATCHIEU` FOREIGN KEY (`suat_chieu_id`) REFERENCES `suat_chieu` (`id`)
+  CONSTRAINT `FK_VEDAT_VEBAN` FOREIGN KEY (`ve_ban_id`) REFERENCES `ve_ban` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -576,4 +566,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-02 23:05:32
+-- Dump completed on 2018-11-03 14:57:01

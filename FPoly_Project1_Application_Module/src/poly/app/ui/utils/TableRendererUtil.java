@@ -10,7 +10,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
-import javax.swing.table.TableModel;
 
 public class TableRendererUtil {
 
@@ -73,7 +72,7 @@ public class TableRendererUtil {
 
     public void changeHeaderStyle() {
         JTableHeader jTableHeader = this.jTable.getTableHeader();
-        jTableHeader.setFont(new Font("open sans", Font.PLAIN, 14)); // font name style size
+        jTableHeader.setFont(new Font("Helvetica Neue", Font.PLAIN, 13)); // font name style size
         // canh giua man hinh
         ((DefaultTableCellRenderer) jTableHeader.getDefaultRenderer())
                 .setHorizontalAlignment(JLabel.CENTER);

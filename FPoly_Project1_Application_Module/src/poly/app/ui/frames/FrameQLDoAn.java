@@ -5,18 +5,20 @@
  */
 package poly.app.ui.frames;
 
+import java.util.Vector;
+import poly.app.core.helper.TableStructureHelper;
 import poly.app.ui.utils.TableRendererUtil;
 
 /**
  *
  * @author vothanhtai
  */
-public class FrameQLKhachHang extends javax.swing.JFrame {
+public class FrameQLDoAn extends javax.swing.JFrame {
 
     /**
      * Creates new form FrameQLNhanVien
      */
-    public FrameQLKhachHang() {
+    public FrameQLDoAn() {
         initComponents();
         setLocationRelativeTo(null);
         reRenderUI();
@@ -24,7 +26,11 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
 
     private void reRenderUI() {
         //        Render lại giao diện cho table
-        TableRendererUtil tblRenderer = new TableRendererUtil(tblKhachHang);
+        TableRendererUtil tblRenderer = new TableRendererUtil(tblDoAn);
+        tblRenderer.setCellEditable(false);
+        tblRenderer.changeHeaderStyle();
+        
+        tblRenderer = new TableRendererUtil(tblDoAnChiTiet);
         tblRenderer.setCellEditable(false);
         tblRenderer.changeHeaderStyle();
     }
@@ -46,9 +52,12 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
         btnThem = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblKhachHang = new javax.swing.JTable();
+        tblDoAn = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblDoAnChiTiet = new javax.swing.JTable();
         btnCollapse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +68,7 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel1.setText("Tra cứu khách hàng");
+        jLabel1.setText("Tra cứu đồ ăn");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -84,11 +93,18 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
 
         btnThem.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         btnSua.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         btnSua.setText("Sửa");
 
         jButton1.setText("Xoá");
+
+        jButton2.setText("Thêm kích cỡ");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -101,7 +117,9 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
                 .addComponent(btnSua)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(24, 24, 24))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,37 +128,53 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
                     .addComponent(btnSua)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap())
         );
 
         jPanel5.setOpaque(false);
 
-        tblKhachHang.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
-        tblKhachHang.setModel(new javax.swing.table.DefaultTableModel(
+        tblDoAn.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        tblDoAn.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã khách hàng", "Họ và tên", "Số cmnd", "Số điện thoại", "Email", "Địa chỉ", "Ngày đăng ký", "Ngày sinh", "Giới tính"
+                "Mã đồ ăn", "Tên đồ ăn", "Loại đồ ăn"
             }
         ));
-        jScrollPane1.setViewportView(tblKhachHang);
+        jScrollPane1.setViewportView(tblDoAn);
+
+        tblDoAnChiTiet.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N
+        tblDoAnChiTiet.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Kích cỡ", "Đơn giá", "Đang bán"
+            }
+        ));
+        jScrollPane2.setViewportView(tblDoAnChiTiet);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 718, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1))
                 .addGap(10, 10, 10))
         );
 
@@ -222,13 +256,15 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
         loadDataToTable();
     }//GEN-LAST:event_formWindowOpened
 
-    
-    
-    public void loadDataToTable(){
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+        
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    public void loadDataToTable() {
 //        Đổ dữ liệu từ database vào table
 //        Code không quá 10 dòng
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -246,21 +282,23 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLDoAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLDoAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLDoAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameQLKhachHang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameQLDoAn.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameQLKhachHang().setVisible(true);
+                new FrameQLDoAn().setVisible(true);
             }
         });
     }
@@ -270,6 +308,7 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -277,6 +316,8 @@ public class FrameQLKhachHang extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblKhachHang;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblDoAn;
+    private javax.swing.JTable tblDoAnChiTiet;
     // End of variables declaration//GEN-END:variables
 }

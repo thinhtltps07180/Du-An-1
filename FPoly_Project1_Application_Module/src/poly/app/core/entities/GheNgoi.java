@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 9:52:40 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -16,26 +16,23 @@ public class GheNgoi  implements java.io.Serializable {
      private PhongChieu phongChieu;
      private String viTriDay;
      private int viTriCot;
-     private String trangThai;
      private Set<VeBan> veBans = new HashSet<VeBan>(0);
 
     public GheNgoi() {
     }
 
 	
-    public GheNgoi(LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, String trangThai) {
+    public GheNgoi(LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot) {
         this.loaiGhe = loaiGhe;
         this.phongChieu = phongChieu;
         this.viTriDay = viTriDay;
         this.viTriCot = viTriCot;
-        this.trangThai = trangThai;
     }
-    public GheNgoi(LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, String trangThai, Set<VeBan> veBans) {
+    public GheNgoi(LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, Set<VeBan> veBans) {
        this.loaiGhe = loaiGhe;
        this.phongChieu = phongChieu;
        this.viTriDay = viTriDay;
        this.viTriCot = viTriCot;
-       this.trangThai = trangThai;
        this.veBans = veBans;
     }
    
@@ -73,13 +70,6 @@ public class GheNgoi  implements java.io.Serializable {
     
     public void setViTriCot(int viTriCot) {
         this.viTriCot = viTriCot;
-    }
-    public String getTrangThai() {
-        return this.trangThai;
-    }
-    
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
     }
     public Set<VeBan> getVeBans() {
         return this.veBans;

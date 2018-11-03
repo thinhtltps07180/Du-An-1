@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -21,14 +21,14 @@ public class KhachHang  implements java.io.Serializable {
      private String diaChi;
      private Date ngayDangKy;
      private Date ngaySinh;
-     private byte gioiTinh;
+     private boolean gioiTinh;
      private Set<VeDat> veDats = new HashSet<VeDat>(0);
 
     public KhachHang() {
     }
 
 	
-    public KhachHang(String id, String hoTen, String soCmnd, String matKhau, Date ngayDangKy, byte gioiTinh) {
+    public KhachHang(String id, String hoTen, String soCmnd, String matKhau, Date ngayDangKy, boolean gioiTinh) {
         this.id = id;
         this.hoTen = hoTen;
         this.soCmnd = soCmnd;
@@ -36,7 +36,7 @@ public class KhachHang  implements java.io.Serializable {
         this.ngayDangKy = ngayDangKy;
         this.gioiTinh = gioiTinh;
     }
-    public KhachHang(String id, String hoTen, String soCmnd, String matKhau, String soDienThoai, String email, String diaChi, Date ngayDangKy, Date ngaySinh, byte gioiTinh, Set<VeDat> veDats) {
+    public KhachHang(String id, String hoTen, String soCmnd, String matKhau, String soDienThoai, String email, String diaChi, Date ngayDangKy, Date ngaySinh, boolean gioiTinh, Set<VeDat> veDats) {
        this.id = id;
        this.hoTen = hoTen;
        this.soCmnd = soCmnd;
@@ -113,11 +113,11 @@ public class KhachHang  implements java.io.Serializable {
     public void setNgaySinh(Date ngaySinh) {
         this.ngaySinh = ngaySinh;
     }
-    public byte getGioiTinh() {
+    public boolean isGioiTinh() {
         return this.gioiTinh;
     }
     
-    public void setGioiTinh(byte gioiTinh) {
+    public void setGioiTinh(boolean gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
     public Set<VeDat> getVeDats() {

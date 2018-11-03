@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,10 +19,12 @@ public class VaiTro  implements java.io.Serializable {
     }
 
 	
-    public VaiTro(String ten) {
+    public VaiTro(String id, String ten) {
+        this.id = id;
         this.ten = ten;
     }
-    public VaiTro(String ten, Set<NguoiDung> nguoiDungs) {
+    public VaiTro(String id, String ten, Set<NguoiDung> nguoiDungs) {
+       this.id = id;
        this.ten = ten;
        this.nguoiDungs = nguoiDungs;
     }

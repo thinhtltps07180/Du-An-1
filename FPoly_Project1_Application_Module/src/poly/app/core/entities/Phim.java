@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class Phim  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private LoaiPhim loaiPhim;
      private String ten;
      private int thoiLuong;
@@ -32,14 +32,12 @@ public class Phim  implements java.io.Serializable {
     }
 
 	
-    public Phim(int id, LoaiPhim loaiPhim, String ten, int thoiLuong) {
-        this.id = id;
+    public Phim(LoaiPhim loaiPhim, String ten, int thoiLuong) {
         this.loaiPhim = loaiPhim;
         this.ten = ten;
         this.thoiLuong = thoiLuong;
     }
-    public Phim(int id, LoaiPhim loaiPhim, String ten, int thoiLuong, Integer gioiHanTuoi, Integer namSanXuat, Date ngayCongChieu, String ngonNgu, String daoDien, String dienVien, String quocGia, String nhaSanXuat, String tomTat, String trangThai, Set<SuatChieu> suatChieus) {
-       this.id = id;
+    public Phim(LoaiPhim loaiPhim, String ten, int thoiLuong, Integer gioiHanTuoi, Integer namSanXuat, Date ngayCongChieu, String ngonNgu, String daoDien, String dienVien, String quocGia, String nhaSanXuat, String tomTat, String trangThai, Set<SuatChieu> suatChieus) {
        this.loaiPhim = loaiPhim;
        this.ten = ten;
        this.thoiLuong = thoiLuong;
@@ -56,11 +54,11 @@ public class Phim  implements java.io.Serializable {
        this.suatChieus = suatChieus;
     }
    
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public LoaiPhim getLoaiPhim() {

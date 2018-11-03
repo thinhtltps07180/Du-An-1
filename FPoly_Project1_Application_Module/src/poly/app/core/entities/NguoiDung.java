@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,7 +12,7 @@ import java.util.Set;
 public class NguoiDung  implements java.io.Serializable {
 
 
-     private int id;
+     private String id;
      private VaiTro vaiTro;
      private String hoTen;
      private String matKhau;
@@ -21,7 +21,7 @@ public class NguoiDung  implements java.io.Serializable {
      private String email;
      private String diaChi;
      private Date ngayVaoLam;
-     private byte gioiTinh;
+     private boolean gioiTinh;
      private Set<VeBan> veBans = new HashSet<VeBan>(0);
      private Set<HoaDon> hoaDons = new HashSet<HoaDon>(0);
 
@@ -29,7 +29,7 @@ public class NguoiDung  implements java.io.Serializable {
     }
 
 	
-    public NguoiDung(int id, VaiTro vaiTro, String hoTen, String matKhau, String soCmnd, String soDienThoai, Date ngayVaoLam, byte gioiTinh) {
+    public NguoiDung(String id, VaiTro vaiTro, String hoTen, String matKhau, String soCmnd, String soDienThoai, Date ngayVaoLam, boolean gioiTinh) {
         this.id = id;
         this.vaiTro = vaiTro;
         this.hoTen = hoTen;
@@ -39,7 +39,7 @@ public class NguoiDung  implements java.io.Serializable {
         this.ngayVaoLam = ngayVaoLam;
         this.gioiTinh = gioiTinh;
     }
-    public NguoiDung(int id, VaiTro vaiTro, String hoTen, String matKhau, String soCmnd, String soDienThoai, String email, String diaChi, Date ngayVaoLam, byte gioiTinh, Set<VeBan> veBans, Set<HoaDon> hoaDons) {
+    public NguoiDung(String id, VaiTro vaiTro, String hoTen, String matKhau, String soCmnd, String soDienThoai, String email, String diaChi, Date ngayVaoLam, boolean gioiTinh, Set<VeBan> veBans, Set<HoaDon> hoaDons) {
        this.id = id;
        this.vaiTro = vaiTro;
        this.hoTen = hoTen;
@@ -54,11 +54,11 @@ public class NguoiDung  implements java.io.Serializable {
        this.hoaDons = hoaDons;
     }
    
-    public int getId() {
+    public String getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
     public VaiTro getVaiTro() {
@@ -117,11 +117,11 @@ public class NguoiDung  implements java.io.Serializable {
     public void setNgayVaoLam(Date ngayVaoLam) {
         this.ngayVaoLam = ngayVaoLam;
     }
-    public byte getGioiTinh() {
+    public boolean isGioiTinh() {
         return this.gioiTinh;
     }
     
-    public void setGioiTinh(byte gioiTinh) {
+    public void setGioiTinh(boolean gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
     public Set<VeBan> getVeBans() {

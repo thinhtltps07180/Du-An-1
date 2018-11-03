@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class LoaiDoAn  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private String ten;
      private Set<DoAn> doAns = new HashSet<DoAn>(0);
 
@@ -19,21 +19,19 @@ public class LoaiDoAn  implements java.io.Serializable {
     }
 
 	
-    public LoaiDoAn(int id, String ten) {
-        this.id = id;
+    public LoaiDoAn(String ten) {
         this.ten = ten;
     }
-    public LoaiDoAn(int id, String ten, Set<DoAn> doAns) {
-       this.id = id;
+    public LoaiDoAn(String ten, Set<DoAn> doAns) {
        this.ten = ten;
        this.doAns = doAns;
     }
    
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getTen() {

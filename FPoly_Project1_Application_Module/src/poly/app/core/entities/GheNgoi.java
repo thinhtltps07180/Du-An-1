@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,43 +11,39 @@ import java.util.Set;
 public class GheNgoi  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private LoaiGhe loaiGhe;
      private PhongChieu phongChieu;
      private String viTriDay;
      private int viTriCot;
      private String trangThai;
-     private Set<VeDat> veDats = new HashSet<VeDat>(0);
      private Set<VeBan> veBans = new HashSet<VeBan>(0);
 
     public GheNgoi() {
     }
 
 	
-    public GheNgoi(int id, LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, String trangThai) {
-        this.id = id;
+    public GheNgoi(LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, String trangThai) {
         this.loaiGhe = loaiGhe;
         this.phongChieu = phongChieu;
         this.viTriDay = viTriDay;
         this.viTriCot = viTriCot;
         this.trangThai = trangThai;
     }
-    public GheNgoi(int id, LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, String trangThai, Set<VeDat> veDats, Set<VeBan> veBans) {
-       this.id = id;
+    public GheNgoi(LoaiGhe loaiGhe, PhongChieu phongChieu, String viTriDay, int viTriCot, String trangThai, Set<VeBan> veBans) {
        this.loaiGhe = loaiGhe;
        this.phongChieu = phongChieu;
        this.viTriDay = viTriDay;
        this.viTriCot = viTriCot;
        this.trangThai = trangThai;
-       this.veDats = veDats;
        this.veBans = veBans;
     }
    
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public LoaiGhe getLoaiGhe() {
@@ -84,13 +80,6 @@ public class GheNgoi  implements java.io.Serializable {
     
     public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
-    }
-    public Set<VeDat> getVeDats() {
-        return this.veDats;
-    }
-    
-    public void setVeDats(Set<VeDat> veDats) {
-        this.veDats = veDats;
     }
     public Set<VeBan> getVeBans() {
         return this.veBans;

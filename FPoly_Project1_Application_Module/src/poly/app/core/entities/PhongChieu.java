@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,7 +11,7 @@ import java.util.Set;
 public class PhongChieu  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private int soLuongDay;
      private int soLuongCot;
      private Set<SuatChieu> suatChieus = new HashSet<SuatChieu>(0);
@@ -21,24 +21,22 @@ public class PhongChieu  implements java.io.Serializable {
     }
 
 	
-    public PhongChieu(int id, int soLuongDay, int soLuongCot) {
-        this.id = id;
+    public PhongChieu(int soLuongDay, int soLuongCot) {
         this.soLuongDay = soLuongDay;
         this.soLuongCot = soLuongCot;
     }
-    public PhongChieu(int id, int soLuongDay, int soLuongCot, Set<SuatChieu> suatChieus, Set<GheNgoi> gheNgois) {
-       this.id = id;
+    public PhongChieu(int soLuongDay, int soLuongCot, Set<SuatChieu> suatChieus, Set<GheNgoi> gheNgois) {
        this.soLuongDay = soLuongDay;
        this.soLuongCot = soLuongCot;
        this.suatChieus = suatChieus;
        this.gheNgois = gheNgois;
     }
    
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public int getSoLuongDay() {

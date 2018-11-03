@@ -6,6 +6,12 @@
 package poly.app.ui.frames;
 
 import poly.app.ui.utils.TableRendererUtil;
+import poly.app.core.entities.*;
+import javax.swing.*;
+import java.util.*;
+import javax.swing.table.DefaultTableModel;
+import poly.app.core.dao.NguoiDungDao;
+import poly.app.core.daoimpl.NguoiDungDaoImpl;
 
 /**
  *
@@ -222,12 +228,19 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
         loadDataToTable();
     }//GEN-LAST:event_formWindowOpened
 
-    
-    
-    public void loadDataToTable(){
+    public void loadDataToTable() {
+        NguoiDungDaoImpl nguoiDungDaoImpl = new NguoiDungDaoImpl();
+        DefaultTableModel defaultTableModel = (DefaultTableModel) tblNguoiDung.getModel();
+        for (NguoiDung nd : nguoiDungDaoImpl.getAll()) {
+            defaultTableModel.addRow(new Object[]{nd.getId(), nd.getHoTen(), nd.getSoCmnd(), nd.getSoDienThoai(), nd.getEmail(),
+                nd.getDiaChi(), nd.getNgayVaoLam(), nd.getGioiTinh(), nd.getVaiTro()});
+        }
+        this.tblNguoiDung.setModel(defaultTableModel);
+
 //        Đổ dữ liệu từ database vào table
 //        Code không quá 10 dòng
     }
+
     /**
      * @param args the command line arguments
      */

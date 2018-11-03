@@ -18,9 +18,17 @@ public class TableRendererUtil {
     public static final int CELL_ALIGN_RIGHT = 4;
 
     private JTable jTable;
+    private Vector tableHeader;
 
     public TableRendererUtil(JTable jTable) {
         this.jTable = jTable;
+        
+//        Lay header cua table va
+        tableHeader = new Vector();
+        for (int i = 0; i < jTable.getColumnCount(); i++) {
+            tableHeader.add(jTable.getColumnName(i));
+        }
+        this.setDataVector(new Vector());
     }
 
     public TableRendererUtil(JTable jTable, Class[] columnClass) {
@@ -48,7 +56,7 @@ public class TableRendererUtil {
         jTable.setPreferredScrollableViewportSize(jTable.getPreferredSize());
         jTable = this.jTable;
     }
-
+    
     public void setCellEditable(boolean isEditable) {
         DefaultTableModel tableModel = (DefaultTableModel) this.jTable.getModel();
         tableModel = new DefaultTableModel() {
@@ -57,6 +65,7 @@ public class TableRendererUtil {
                 return isEditable;
             }
         };
+        tableModel.setDataVector(new Vector(), this.tableHeader);
         this.jTable.setModel(tableModel);
     }
     
@@ -64,9 +73,9 @@ public class TableRendererUtil {
         this.jTable.getModel().isCellEditable(-1, columnIndex);
     }
 
-    public void setDataVector(Vector tableData, String[] tableIdentifiers) {
+    public void setDataVector(Vector tableData) {
         DefaultTableModel tableModel = (DefaultTableModel) this.jTable.getModel();
-        tableModel.setDataVector(tableData, new Vector(Arrays.asList(tableIdentifiers)));
+        tableModel.setDataVector(tableData, this.tableHeader);
         this.jTable.setModel(tableModel);
     }
 

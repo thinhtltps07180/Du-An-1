@@ -5,8 +5,6 @@
  */
 package poly.app.ui.frames;
 
-import java.util.Vector;
-import poly.app.core.helper.TableStructureHelper;
 import poly.app.ui.utils.TableRendererUtil;
 
 /**
@@ -28,7 +26,6 @@ public class FrameQLPhim extends javax.swing.JFrame {
         //        Render lại giao diện cho table
         TableRendererUtil tblRenderer1 = new TableRendererUtil(tblPhim);
         tblRenderer1.setCellEditable(false);
-        tblRenderer1.setDataVector(new Vector(), TableStructureHelper.PHIM_TABLE_IDENTIFIERS);
         tblRenderer1.changeHeaderStyle();
     }
 
@@ -62,7 +59,7 @@ public class FrameQLPhim extends javax.swing.JFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
-        jLabel1.setText("Tra cứu nhân viên");
+        jLabel1.setText("Tra cứu phim");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

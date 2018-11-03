@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 9:52:40 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -117,7 +117,7 @@ public class NguoiDung  implements java.io.Serializable {
     public void setNgayVaoLam(Date ngayVaoLam) {
         this.ngayVaoLam = ngayVaoLam;
     }
-    public boolean isGioiTinh() {
+    public boolean getGioiTinh() {
         return this.gioiTinh;
     }
     
@@ -140,7 +140,9 @@ public class NguoiDung  implements java.io.Serializable {
     }
 
 
-
+    public boolean isName(){
+        return this.gioiTinh;
+    }
 
 }
 

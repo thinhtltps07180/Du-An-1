@@ -6,7 +6,6 @@
 package poly.app.ui.frames;
 
 import java.util.Vector;
-import javax.swing.JLabel;
 import poly.app.core.helper.TableStructureHelper;
 import poly.app.ui.utils.TableRendererUtil;
 
@@ -26,7 +25,7 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
     }
 
     private void reRenderUI() {
-        //        RENDER LAI TBL NHAN VIEN
+        //        Render lại giao diện cho table
         TableRendererUtil tblRenderer1 = new TableRendererUtil(tblNguoiDung);
         tblRenderer1.setCellEditable(false);
         tblRenderer1.setDataVector(new Vector(), TableStructureHelper.NGUOIDUNG_TABLE_IDENTIFIERS);
@@ -49,12 +48,18 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         btnThem = new javax.swing.JButton();
         btnSua = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblNguoiDung = new javax.swing.JTable();
         btnCollapse = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         jLabel1.setText("Tra cứu nhân viên");
@@ -82,14 +87,11 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
 
         btnThem.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         btnThem.setText("Thêm");
-        btnThem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnThemActionPerformed(evt);
-            }
-        });
 
         btnSua.setFont(new java.awt.Font("Helvetica Neue", 0, 14)); // NOI18N
         btnSua.setText("Sửa");
+
+        jButton1.setText("Xoá");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -100,6 +102,8 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
                 .addComponent(btnThem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSua)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -108,7 +112,8 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnThem)
-                    .addComponent(btnSua))
+                    .addComponent(btnSua)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -206,10 +211,6 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-
-    }//GEN-LAST:event_btnThemActionPerformed
-
     private void btnCollapseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCollapseMouseReleased
         if (btnCollapse.getText().equals("<<")) {
             jPanel2.setVisible(false);
@@ -220,6 +221,16 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCollapseMouseReleased
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        loadDataToTable();
+    }//GEN-LAST:event_formWindowOpened
+
+    
+    
+    public void loadDataToTable(){
+//        Đổ dữ liệu từ database vào table
+//        Code không quá 10 dòng
+    }
     /**
      * @param args the command line arguments
      */
@@ -259,6 +270,7 @@ public class FrameQLNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel btnCollapse;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

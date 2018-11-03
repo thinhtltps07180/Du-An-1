@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `du_an_1` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `du_an_1`;
--- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: du_an_1
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -118,7 +118,7 @@ CREATE TABLE `ghe_ngoi` (
   KEY `FK_GHE_LOAIGHE_idx` (`loai_ghe_id`),
   CONSTRAINT `FK_GHE_LOAIGHE` FOREIGN KEY (`loai_ghe_id`) REFERENCES `loai_ghe` (`id`),
   CONSTRAINT `FK_GHE_PHONGCHIEU` FOREIGN KEY (`phong_chieu_id`) REFERENCES `phong_chieu` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -127,6 +127,7 @@ CREATE TABLE `ghe_ngoi` (
 
 LOCK TABLES `ghe_ngoi` WRITE;
 /*!40000 ALTER TABLE `ghe_ngoi` DISABLE KEYS */;
+INSERT INTO `ghe_ngoi` VALUES (1,'A',1,'0',1,'NC'),(2,'A',2,'0',1,'NC'),(3,'B',1,'0',1,'NC'),(4,'B',2,'0',1,'NC'),(5,'A',1,'0',2,'SC'),(6,'A',2,'0',2,'NC'),(7,'A',3,'0',2,'NC'),(8,'A',4,'0',2,'DC'),(9,'B',1,'0',2,'SC'),(10,'B',2,'0',2,'NC'),(11,'B',3,'0',2,'NC'),(12,'B',4,'0',2,'DC');
 /*!40000 ALTER TABLE `ghe_ngoi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,6 +179,7 @@ CREATE TABLE `hoa_don` (
 
 LOCK TABLES `hoa_don` WRITE;
 /*!40000 ALTER TABLE `hoa_don` DISABLE KEYS */;
+INSERT INTO `hoa_don` VALUES ('HD001','2018-04-04','US002'),('HD002','2018-04-04','US001');
 /*!40000 ALTER TABLE `hoa_don` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -198,7 +200,7 @@ CREATE TABLE `hoa_don_chi_tiet` (
   KEY `FK_HOADONCHITIET_DOAN_idx` (`do_an_chi_tiet_id`),
   CONSTRAINT `FK_HOADONCHITIET_DOANCHITIET` FOREIGN KEY (`do_an_chi_tiet_id`) REFERENCES `do_an_chi_tiet` (`id`),
   CONSTRAINT `FK_HOADONCHITIET_HOADON` FOREIGN KEY (`hoa_don_id`) REFERENCES `hoa_don` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,6 +209,7 @@ CREATE TABLE `hoa_don_chi_tiet` (
 
 LOCK TABLES `hoa_don_chi_tiet` WRITE;
 /*!40000 ALTER TABLE `hoa_don_chi_tiet` DISABLE KEYS */;
+INSERT INTO `hoa_don_chi_tiet` VALUES (1,2,2,'HD001'),(2,6,4,'HD002');
 /*!40000 ALTER TABLE `hoa_don_chi_tiet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -425,7 +428,7 @@ CREATE TABLE `phong_chieu` (
   `so_luong_day` int(10) unsigned NOT NULL,
   `so_luong_cot` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -434,6 +437,7 @@ CREATE TABLE `phong_chieu` (
 
 LOCK TABLES `phong_chieu` WRITE;
 /*!40000 ALTER TABLE `phong_chieu` DISABLE KEYS */;
+INSERT INTO `phong_chieu` VALUES (1,2,2),(2,2,4);
 /*!40000 ALTER TABLE `phong_chieu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -459,7 +463,7 @@ CREATE TABLE `suat_chieu` (
   CONSTRAINT `FK_SUATCHIEU_DINHDANGPHIM` FOREIGN KEY (`dinh_dang_phim_id`) REFERENCES `dinh_dang_phim` (`id`),
   CONSTRAINT `FK_SUATCHIEU_PHIM` FOREIGN KEY (`phim_id`) REFERENCES `phim` (`id`),
   CONSTRAINT `FK_SUATCHIEU_PHONGCHIEU` FOREIGN KEY (`phong_chieu_id`) REFERENCES `phong_chieu` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -468,6 +472,7 @@ CREATE TABLE `suat_chieu` (
 
 LOCK TABLES `suat_chieu` WRITE;
 /*!40000 ALTER TABLE `suat_chieu` DISABLE KEYS */;
+INSERT INTO `suat_chieu` VALUES (1,'20:00:00','22:00:00','2018-11-11',1,1,'3D'),(2,'09:00:00','11:00:00','2018-12-12',2,2,'IMAX');
 /*!40000 ALTER TABLE `suat_chieu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -528,6 +533,7 @@ CREATE TABLE `ve_ban` (
 
 LOCK TABLES `ve_ban` WRITE;
 /*!40000 ALTER TABLE `ve_ban` DISABLE KEYS */;
+INSERT INTO `ve_ban` VALUES ('VB001','2018-11-11',1,1,2,10,'US002'),('VB002','2018-12-12',1,2,3,2,'US003');
 /*!40000 ALTER TABLE `ve_ban` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -564,6 +570,7 @@ CREATE TABLE `ve_dat` (
 
 LOCK TABLES `ve_dat` WRITE;
 /*!40000 ALTER TABLE `ve_dat` DISABLE KEYS */;
+INSERT INTO `ve_dat` VALUES ('VD001','2018-11-11',1,1,1,1,'CU001'),('VD002','2018-12-12',1,2,2,4,'CU002');
 /*!40000 ALTER TABLE `ve_dat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -576,4 +583,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-02 23:05:32
+-- Dump completed on 2018-11-03 21:28:55

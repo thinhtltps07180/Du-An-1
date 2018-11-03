@@ -1,5 +1,5 @@
 package poly.app.core.entities;
-// Generated Nov 2, 2018 5:32:44 PM by Hibernate Tools 4.3.1
+// Generated Nov 3, 2018 10:13:24 AM by Hibernate Tools 4.3.1
 
 
 
@@ -9,7 +9,7 @@ package poly.app.core.entities;
 public class HoaDonChiTiet  implements java.io.Serializable {
 
 
-     private int id;
+     private Integer id;
      private DoAnChiTiet doAnChiTiet;
      private HoaDon hoaDon;
      private int soLuong;
@@ -17,18 +17,17 @@ public class HoaDonChiTiet  implements java.io.Serializable {
     public HoaDonChiTiet() {
     }
 
-    public HoaDonChiTiet(int id, DoAnChiTiet doAnChiTiet, HoaDon hoaDon, int soLuong) {
-       this.id = id;
+    public HoaDonChiTiet(DoAnChiTiet doAnChiTiet, HoaDon hoaDon, int soLuong) {
        this.doAnChiTiet = doAnChiTiet;
        this.hoaDon = hoaDon;
        this.soLuong = soLuong;
     }
    
-    public int getId() {
+    public Integer getId() {
         return this.id;
     }
     
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public DoAnChiTiet getDoAnChiTiet() {

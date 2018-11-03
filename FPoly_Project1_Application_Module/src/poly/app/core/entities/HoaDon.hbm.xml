@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 2, 2018 5:32:45 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 3, 2018 10:13:25 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="poly.app.core.entities.HoaDon" table="hoa_don" catalog="du_an_1" optimistic-lock="version">
         <id name="id" type="string">
@@ -9,7 +9,7 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="nguoiDung" class="poly.app.core.entities.NguoiDung" fetch="select">
-            <column name="nhan_vien_id" not-null="true" />
+            <column name="nhan_vien_id" length="15" not-null="true" />
         </many-to-one>
         <property name="ngayBan" type="date">
             <column name="ngay_ban" length="10" not-null="true" />

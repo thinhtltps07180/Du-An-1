@@ -101,6 +101,10 @@ public class AbstractDao<ID extends Serializable, T> implements GenericDao<ID, T
         }
         return list;
     }
+    
+    public List<T> getByProperties(Map<String, Object> conditions){
+        return this.getByProperties(conditions, null, null, null, null);
+    }
 
     @Override
     public boolean insert(T entity) {

@@ -77,4 +77,4 @@ nbdist/
 # End of https://www.gitignore.io/api/osx,java,macos,netbeans
 
 # my custom
-!*/libraries/
+!libraries/*

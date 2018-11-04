@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `du_an_1` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `du_an_1`;
--- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.12, for macos10.13 (x86_64)
 --
 -- Host: localhost    Database: du_an_1
 -- ------------------------------------------------------
--- Server version	8.0.13
+-- Server version	8.0.12
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -79,6 +79,7 @@ DROP TABLE IF EXISTS `do_an_chi_tiet`;
 CREATE TABLE `do_an_chi_tiet` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `don_gia` int(10) unsigned NOT NULL,
+  `trang_thai` bit(1) NOT NULL,
   `do_an_id` varchar(15) NOT NULL,
   `kich_co_do_an_id` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
@@ -95,7 +96,7 @@ CREATE TABLE `do_an_chi_tiet` (
 
 LOCK TABLES `do_an_chi_tiet` WRITE;
 /*!40000 ALTER TABLE `do_an_chi_tiet` DISABLE KEYS */;
-INSERT INTO `do_an_chi_tiet` VALUES (1,20000,'DA001','S'),(2,30000,'DA001','M'),(3,40000,'DA001','L'),(4,89000,'DA002','S'),(5,139000,'DA002','M'),(6,169000,'DA002','L'),(7,10000,'NU003','S'),(8,15000,'NU003','M'),(9,25000,'NU003','L'),(10,10000,'NU004','S'),(11,15000,'NU004','M'),(12,25000,'NU004','L');
+INSERT INTO `do_an_chi_tiet` VALUES (1,20000,_binary '','DA001','S'),(2,30000,_binary '','DA001','M'),(3,40000,_binary '','DA001','L'),(4,89000,_binary '','DA002','S'),(5,139000,_binary '','DA002','M'),(6,169000,_binary '','DA002','L'),(7,10000,_binary '','NU003','S'),(8,15000,_binary '','NU003','M'),(9,25000,_binary '','NU003','L'),(10,10000,_binary '','NU004','S'),(11,15000,_binary '','NU004','M'),(12,25000,_binary '','NU004','L');
 /*!40000 ALTER TABLE `do_an_chi_tiet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,7 +111,6 @@ CREATE TABLE `ghe_ngoi` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `vi_tri_day` varchar(1) NOT NULL,
   `vi_tri_cot` int(10) unsigned NOT NULL,
-  `trang_thai` varchar(20) NOT NULL DEFAULT 'chua_dat',
   `phong_chieu_id` int(10) unsigned NOT NULL,
   `loai_ghe_id` varchar(2) NOT NULL,
   PRIMARY KEY (`id`),
@@ -127,7 +127,7 @@ CREATE TABLE `ghe_ngoi` (
 
 LOCK TABLES `ghe_ngoi` WRITE;
 /*!40000 ALTER TABLE `ghe_ngoi` DISABLE KEYS */;
-INSERT INTO `ghe_ngoi` VALUES (1,'A',1,'0',1,'NC'),(2,'A',2,'0',1,'NC'),(3,'B',1,'0',1,'NC'),(4,'B',2,'0',1,'NC'),(5,'A',1,'0',2,'SC'),(6,'A',2,'0',2,'NC'),(7,'A',3,'0',2,'NC'),(8,'A',4,'0',2,'DC'),(9,'B',1,'0',2,'SC'),(10,'B',2,'0',2,'NC'),(11,'B',3,'0',2,'NC'),(12,'B',4,'0',2,'DC');
+INSERT INTO `ghe_ngoi` VALUES (1,'A',1,1,'NC'),(2,'A',2,1,'NC'),(3,'B',1,1,'NC'),(4,'B',2,1,'NC'),(5,'A',1,2,'SC'),(6,'A',2,2,'NC'),(7,'A',3,2,'NC'),(8,'A',4,2,'DC'),(9,'B',1,2,'SC'),(10,'B',2,2,'NC'),(11,'B',3,2,'NC'),(12,'B',4,2,'DC');
 /*!40000 ALTER TABLE `ghe_ngoi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,6 +193,7 @@ DROP TABLE IF EXISTS `hoa_don_chi_tiet`;
 CREATE TABLE `hoa_don_chi_tiet` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `so_luong` int(10) unsigned NOT NULL,
+  `don_gia` int(10) unsigned NOT NULL,
   `do_an_chi_tiet_id` int(10) unsigned NOT NULL,
   `hoa_don_id` varchar(15) NOT NULL,
   PRIMARY KEY (`id`),
@@ -209,7 +210,7 @@ CREATE TABLE `hoa_don_chi_tiet` (
 
 LOCK TABLES `hoa_don_chi_tiet` WRITE;
 /*!40000 ALTER TABLE `hoa_don_chi_tiet` DISABLE KEYS */;
-INSERT INTO `hoa_don_chi_tiet` VALUES (1,2,2,'HD001'),(2,6,4,'HD002');
+INSERT INTO `hoa_don_chi_tiet` VALUES (1,2,60000,2,'HD001'),(2,3,267000,4,'HD002');
 /*!40000 ALTER TABLE `hoa_don_chi_tiet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -360,6 +361,7 @@ CREATE TABLE `nguoi_dung` (
   `dia_chi` varchar(100) DEFAULT NULL,
   `ngay_vao_lam` date NOT NULL,
   `gioi_tinh` bit(1) NOT NULL,
+  `trang_thai` bit(1) DEFAULT b'0',
   `vai_tro_id` varchar(2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `so_cmnd_UNIQUE` (`so_cmnd`),
@@ -374,7 +376,7 @@ CREATE TABLE `nguoi_dung` (
 
 LOCK TABLES `nguoi_dung` WRITE;
 /*!40000 ALTER TABLE `nguoi_dung` DISABLE KEYS */;
-INSERT INTO `nguoi_dung` VALUES ('US001','Lưu Tuấn Cường','12345','123','0367428198','cuonglt@gmail.com','BTH','2018-01-01',_binary '','AD'),('US002','Võ Thành Tài','12345','456','0123456789','taivt@gmail.com','HCM','2017-01-01',_binary '','EM'),('US003','Trần Light','12345','789','0123456789','tranlight@gmail.com','TN','2016-01-01',_binary '\0','MA');
+INSERT INTO `nguoi_dung` VALUES ('US001','Lưu Tuấn Cường','12345','123','0367428198','cuonglt@gmail.com','BTH','2018-01-01',_binary '',_binary '\0','AD'),('US002','Võ Thành Tài','12345','456','0123456789','taivt@gmail.com','HCM','2017-01-01',_binary '',_binary '\0','EM'),('US003','Trần Light','12345','789','0123456789','tranlight@gmail.com','TN','2016-01-01',_binary '\0',_binary '\0','MA');
 /*!40000 ALTER TABLE `nguoi_dung` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -435,7 +437,7 @@ CREATE TABLE `phong_chieu` (
 
 LOCK TABLES `phong_chieu` WRITE;
 /*!40000 ALTER TABLE `phong_chieu` DISABLE KEYS */;
-INSERT INTO `phong_chieu` VALUES (1,2,2),(2,2,4);
+INSERT INTO `phong_chieu` VALUES (1,10,18),(2,10,18);
 /*!40000 ALTER TABLE `phong_chieu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -494,7 +496,7 @@ CREATE TABLE `vai_tro` (
 
 LOCK TABLES `vai_tro` WRITE;
 /*!40000 ALTER TABLE `vai_tro` DISABLE KEYS */;
-INSERT INTO `vai_tro` VALUES ('AD','Quản lý rạp'),('EM','Nhân viên'),('MA','Ban quản lý');
+INSERT INTO `vai_tro` VALUES ('AD','Admin'),('EM','Nhân viên bán hàng'),('MA','Nhân viên quản lý');
 /*!40000 ALTER TABLE `vai_tro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -560,7 +562,6 @@ CREATE TABLE `ve_dat` (
 
 LOCK TABLES `ve_dat` WRITE;
 /*!40000 ALTER TABLE `ve_dat` DISABLE KEYS */;
-INSERT INTO `ve_dat` VALUES ('VD001','2018-11-11',1,1,1,1,'CU001'),('VD002','2018-12-12',1,2,2,4,'CU002');
 /*!40000 ALTER TABLE `ve_dat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -572,3 +573,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-11-04 13:15:47

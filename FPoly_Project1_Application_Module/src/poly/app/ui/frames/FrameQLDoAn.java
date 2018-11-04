@@ -143,7 +143,22 @@ public class FrameQLDoAn extends javax.swing.JFrame {
             new String [] {
                 "Mã đồ ăn", "Tên đồ ăn", "Loại đồ ăn"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblDoAn);
 
         tblDoAnChiTiet.setFont(new java.awt.Font("Helvetica Neue", 0, 13)); // NOI18N

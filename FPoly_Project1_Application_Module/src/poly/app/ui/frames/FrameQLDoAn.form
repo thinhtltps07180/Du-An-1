@@ -260,7 +260,7 @@
                           <Table columnCount="3" rowCount="0">
                             <Column editable="true" title="K&#xed;ch c&#x1ee1;" type="java.lang.Object"/>
                             <Column editable="true" title="&#x110;&#x1a1;n gi&#xe1;" type="java.lang.Object"/>
-                            <Column editable="true" title="&#x110;ang b&#xe1;n" type="java.lang.Object"/>
+                            <Column editable="true" title="&#x110;ang b&#xe1;n" type="java.lang.Boolean"/>
                           </Table>
                         </Property>
                       </Properties>

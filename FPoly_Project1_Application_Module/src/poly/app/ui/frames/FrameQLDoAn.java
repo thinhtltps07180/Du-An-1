@@ -154,7 +154,15 @@ public class FrameQLDoAn extends javax.swing.JFrame {
             new String [] {
                 "Kích cỡ", "Đơn giá", "Đang bán"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(tblDoAnChiTiet);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);

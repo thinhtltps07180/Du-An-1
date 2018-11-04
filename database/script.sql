@@ -361,6 +361,7 @@ CREATE TABLE `nguoi_dung` (
   `dia_chi` varchar(100) DEFAULT NULL,
   `ngay_vao_lam` date NOT NULL,
   `gioi_tinh` bit(1) NOT NULL,
+  `trang_thai` bit(1) DEFAULT b'0',
   `vai_tro_id` varchar(2) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `so_cmnd_UNIQUE` (`so_cmnd`),
@@ -375,7 +376,7 @@ CREATE TABLE `nguoi_dung` (
 
 LOCK TABLES `nguoi_dung` WRITE;
 /*!40000 ALTER TABLE `nguoi_dung` DISABLE KEYS */;
-INSERT INTO `nguoi_dung` VALUES ('US001','Lưu Tuấn Cường','12345','123','0367428198','cuonglt@gmail.com','BTH','2018-01-01',_binary '','AD'),('US002','Võ Thành Tài','12345','456','0123456789','taivt@gmail.com','HCM','2017-01-01',_binary '','EM'),('US003','Trần Light','12345','789','0123456789','tranlight@gmail.com','TN','2016-01-01',_binary '\0','MA');
+INSERT INTO `nguoi_dung` VALUES ('US001','Lưu Tuấn Cường','12345','123','0367428198','cuonglt@gmail.com','BTH','2018-01-01',_binary '',_binary '\0','AD'),('US002','Võ Thành Tài','12345','456','0123456789','taivt@gmail.com','HCM','2017-01-01',_binary '',_binary '\0','EM'),('US003','Trần Light','12345','789','0123456789','tranlight@gmail.com','TN','2016-01-01',_binary '\0',_binary '\0','MA');
 /*!40000 ALTER TABLE `nguoi_dung` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -573,4 +574,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-04 12:36:04
+-- Dump completed on 2018-11-04 13:15:47

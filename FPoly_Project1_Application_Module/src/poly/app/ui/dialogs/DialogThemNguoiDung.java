@@ -5,13 +5,28 @@
  */
 package poly.app.ui.dialogs;
 
+import static java.nio.file.Files.list;
+import java.util.ArrayList;
+import static java.util.Collections.list;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+import poly.app.core.daoimpl.NguoiDungDaoImpl;
+import poly.app.core.daoimpl.VaiTroDaoImpl;
 import poly.app.core.entities.NguoiDung;
+import poly.app.core.entities.VaiTro;
+import poly.app.core.utils.StringUtil;
 
 /**
  *
  * @author vothanhtai
  */
 public class DialogThemNguoiDung extends javax.swing.JDialog {
+
+    VaiTro vt = new VaiTro();
+    List<VaiTro> listVaiTro = new ArrayList<VaiTro>();
+    NguoiDungDaoImpl nguoiDungDaoImpl = new NguoiDungDaoImpl();
+    NguoiDung nguoiDung = new NguoiDung();
 
     /**
      * Creates new form DialogThemNhanVien
@@ -21,25 +36,47 @@ public class DialogThemNguoiDung extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
-    private void loadVaiTroToCombobox(){
+
+    private void loadVaiTroToCombobox() {
+
+        VaiTroDaoImpl vaiTroDaoImpl = new VaiTroDaoImpl();
+
+        for (VaiTro vaiTro : vaiTroDaoImpl.getAll()) {
+            cboVaiTro.addItem(vaiTro.getTen());
+            listVaiTro.add(vt);
+
+        }
 
     }
-    
-    private NguoiDung getModelFromInput(){
+
+    private NguoiDung getModelFromInput() {
+
+        nguoiDung.setHoTen(this.txtHoTen.getText());
+        nguoiDung.setDiaChi(this.txtDiaChi.getText());
+        nguoiDung.setSoCmnd(this.txtCMND.getText());
+        nguoiDung.setNgayVaoLam(this.dcNgayVaoLam.getDate());
+        nguoiDung.setSoDienThoai(this.txtSoDienThoai.getText());
+        nguoiDung.setGioiTinh(this.rdoNam.isSelected());
+        nguoiDung.setEmail(this.txtEmail.getText());
+        nguoiDung.setVaiTro(listVaiTro.get(cboVaiTro.getSelectedIndex()));
+        nguoiDung.setMatKhau(StringUtil.randomString());
+        nguoiDung.setId(vt.getId() + new Date().getTime());
+      
+
 //        code lay nguoi dung tu input
 //        nho set mat khau cho nguoi dung
 //        Get mat khau bang StringUtil.randomString()
 //        Ma nguoi dung se co dang: AD01293411 hoac EM123412418716 hoac MA129384241 tuy theo vai tro
 //        vidu neu la admin: "AD" + new Date().getTime();
-
         return null;
     }
-    
-    private boolean insertNguoiDungToDatabase(){
-//        goi ham getNguoiDungFromInput
-        try {
 
+    private boolean insertNguoiDungToDatabase() {
+//        goi ham getNguoiDungFromInput
+
+        try {
+            this.getModelFromInput();
+           
         } catch (Exception e) {
         }
         return false;
@@ -222,9 +259,9 @@ public class DialogThemNguoiDung extends javax.swing.JDialog {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        if (insertNguoiDungToDatabase()){
-            
-        }else{
+        if (insertNguoiDungToDatabase()) {
+          
+        } else {
             
         }
     }//GEN-LAST:event_btnLuuActionPerformed
